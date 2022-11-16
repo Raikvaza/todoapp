@@ -358,6 +358,16 @@ ul > li{
     
   }
 }
+.task{
+  background-color: #0d806c;
+  border: 4px solid yellow;
+  border-radius: 20rem;
+  
+  height: 10vh;
+  margin: 1rem 5vw 2rem 5vw;
+
+}
+
 
 
 .clearfix::after{
