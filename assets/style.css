@@ -9,7 +9,7 @@
     --purple: #8B5CF6;
     --light: #EEE;
 }
-
+@font-face { font-family: Modeseven; src: url('Modeseven-L3n5.ttf'); } 
 * {
   margin: 0;
   padding: 0;
@@ -41,7 +41,8 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  /* font-family: "Inter", sans-serif; */
+  font-family: Modeseven;
   background-color: var(--darkest);
 }
 
@@ -101,7 +102,7 @@ main > h1{
 
 #new-task-input::placeholder {
 	color: #50ce16;
-  text-align:center;
+  text-align:center;0
 }
 
 #new-task-submit { /*Submit button*/
@@ -145,6 +146,7 @@ main > h1{
   display: block;
   position:sticky;
   top: 0px;
+  padding: 1rem;
   flex: 0 1;
   border: 2px solid #50ce16;
   border-radius: var(--main-radius);
@@ -164,12 +166,21 @@ main > h1{
 
 .doneInput{
   overflow: auto;
+  position: inherit;
   background-color: var(--dark);
   border: 1px solid #50ce16;
   color: #50ce16;
   text-align: start;
   padding: 1rem;
   margin: 1rem;
+  z-index: 10;
+}
+img {
+  opacity: 0.3;
+  left: 10rem;
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
 }
 /*Done tasks*/
 
@@ -192,7 +203,7 @@ main > h1{
   background-color: var(--darkest);
   border:3px solid #50ce16;
   position:sticky;
-  padding: 2px;
+  padding: 1rem;
   top:0px;
   color: #50ce16;
   z-index: 2;

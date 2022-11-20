@@ -38,8 +38,7 @@ func main() {
 	fs := http.FileServer(http.Dir("./assets"))
 	http.Handle("/assets/", http.StripPrefix("/assets", fs))
 	http.HandleFunc("/", server.HomeHandler)
-	http.HandleFunc("/ascii", server.AsciiHandler)
-	if err := http.ListenAndServe(":8081", nil); err != nil {
+	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}
 }
