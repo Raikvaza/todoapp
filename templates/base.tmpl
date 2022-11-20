@@ -11,24 +11,62 @@
 <body>
     <div class="container">
         <nav>
-            <h1>Home Page</h1>
-            <a href="/" class="btn btn-donate">Home</a>
+            <h1>TO-DO</h1>
+           <!-- <a href="/" class="btn btn-donate">Home</a> -->
         </nav>
         
         <main>
-            <div class="task"></div>
+            <h1>New Task</h1>
+                <form id="new-task-form">
+                    <input 
+                        type="text" 
+                        name="new-task-input" 
+                        id="new-task-input" 
+                        placeholder="What do you have planned?" />
+                    <input 
+                        type="submit"
+                        id="new-task-submit" 
+                        value="Add task" />
+                </form>
+
+
         </main>
         
-        
-        <div id="content1">
-            <h1>Ascii-ART</h1>
-            <div class="result">
+        <div class="doneTasks">
+            <h1 id="doneHeader">Done Tasks</h1>
+            <div id="doneContainer" >
+                
             </div>
+
         </div>
         
-        <footer>Footer</footer>
+        <div id="content1">
+            <h1 id="sticky-header">Tasks</h1>
+            <section class="task-list">
+                
+                
+                <div id="tasks">
+     
+                <!--<div class="task">
+                        <div class="content">
+                            <input 
+                                type="text" 
+                                class="text" 
+                                value="A new task"
+                                readonly>
+                        </div>
+                        <div class="actions">
+                            <button class="edit">Edit</button>
+                            <button class="delete">Delete</button>
+                        </div>
+                    </div> -->
+                </div>
+            </section>
+        </div>
+        
+        <footer>Useless Footer©</footer>
       </div>
-
+      <script src="assets/main.js"></script>
 </body>
 </html>
 <!--
