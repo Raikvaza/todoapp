@@ -298,8 +298,46 @@ footer {
   padding-top: var(--main-padding);
  
 }
-
-
+/* ERROR PAGE */
+.error_container{
+  display: grid;
+  grid-template-columns: 1fr;
+  color:#50ce16;
+  grid-template-rows: 10vh 80vh 10vh;
+  grid-template-areas: 
+  "nav"
+  "err_main"
+  "footer";
+}
+.error_page{
+  grid-area: "err_main";
+  border: 2px solid #50ce16;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 2rem;
+  background: var(--darker);
+  border-radius: var(--main-radius);
+  color: #50ce16;  
+}
+.error_home{
+  position: absolute;
+  left: 3vw;
+  text-decoration: none;
+  font-size: 3rem;
+  color: #50ce16;
+  background-color: #6B7280;
+  border: 1px solid #50ce16; 
+  border-radius: var(--main-radius);
+  padding: var(--main-padding)
+}
+nav > h1{
+  color: #50ce16;
+}
+.error_container > footer{
+  text-align: center;
+  font-weight: 600;
+}
+/* ERROR PAGE END */
 .clearfix::after{
   content:" ";
   clear:both;

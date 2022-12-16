@@ -1,27 +1,65 @@
 package server
 
 import (
+	"log"
 	"net/http"
 	"text/template"
 )
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		http.Error(w, "404 Page not found", http.StatusNotFound)
+		w.WriteHeader(404)
+		temp, err := template.ParseFiles("templates/error.tmpl")
+		if err != nil {
+			log.Fatal(err)
+			return
+		}
+		err = temp.Execute(w, "404 Page Not Found")
+		if err != nil {
+			log.Fatal(err)
+			return
+		}
 		return
 	}
 	if r.Method != http.MethodGet {
-		http.Error(w, "405 method not allowed", http.StatusMethodNotAllowed)
-		return
+		w.WriteHeader(405)
+		temp, err := template.ParseFiles("templates/error.tmpl")
+		if err != nil {
+			log.Fatal(err)
+			return
+		}
+		err = temp.Execute(w, "405 Method Not Allowed")
+		if err != nil {
+			log.Fatal(err)
+			return
+		}
 	}
 	html, err := template.ParseFiles("templates/base.tmpl")
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
+		w.WriteHeader(500)
+		temp, err := template.ParseFiles("templates/error.tmpl")
+		if err != nil {
+			log.Fatal(err)
+			return
+		}
+		err = temp.Execute(w, "500 Internal Server Error")
+		if err != nil {
+			log.Fatal(err)
+			return
+		}
 	}
 	err = html.Execute(w, html)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
+		w.WriteHeader(500)
+		temp, err := template.ParseFiles("templates/error.tmpl")
+		if err != nil {
+			log.Fatal(err)
+			return
+		}
+		err = temp.Execute(w, "500 Internal Server Error")
+		if err != nil {
+			log.Fatal(err)
+			return
+		}
 	}
 }
